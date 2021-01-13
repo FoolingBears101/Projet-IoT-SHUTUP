@@ -1,0 +1,15 @@
+body {
+    color: #F0E68C;
+    background: #174e5e;
+    margin: 0;
+    text-align: center;
+    font-family: "helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+h1 {
+    max-width: 600px; 
+    margin: 0 auto ;
+    text-align: center;
+}
+  #canvas {
+    text-align: center;
+  }
