@@ -1,0 +1,142 @@
+<!DOCTYPE HTML><html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <style>
+    #header{
+     background-color : white;
+     height:100px;
+    }
+    #nav{
+     background-color : #339999;
+      color: white;
+      width:400px;
+      height:1200px;
+      float:left;
+      line-height:100%
+    }
+    #section{
+      width:200px;
+      float: left;
+      text-align: left;
+      padding: 10px;
+      
+    }
+    #footer{
+      background-color : white;
+      clear: both;
+      height:100px;
+      
+    }
+    #header,#nav,#section,#footer {text-align:center;}
+    #header,#footer {line-height:100px;}
+    #nav,#section {line-height:240px;}
+    
+  </style>
+</head>
+<body>
+  <h2>ESP32 Noise controller</h2>
+  <div id="header">
+  <p>
+   <h2> <i class="fas fa-robot" style="color:#059e8a;"></i> 
+    <span class="shutup mode">Shut up Mode :</span> 
+    <span id="SUmode">%SU MODE%</span>
+    </h2>
+   </p>
+  </div>
+  <nav>
+  <div id="nav">
+   
+  <p>
+    <i class="fas fa-users"style="color:#FFFF00;"></i> 
+    <span class="nbuser-labels">Number of user :</span>
+    <span id="NBuser">%NB USER%</span>
+    <sup class="units">Person(s)</sup>
+  </p>
+  
+    <p>
+    <i class="far fa-user" style="color:#FF0000;"></i> 
+    <span class="nbuser-labels">%USER 1%:</span>
+    <span id="User1Noise">%U1 NOISE%</span>
+
+  </p>
+  
+    <p>
+    <i class="far fa-user" style="color:#00FF00;"></i> 
+    <span class="nbuser-labels">%USER 2 % :</span>
+    <span id="User2Noise">%U2 NOISE%</span>
+    
+  </p>
+    <p>
+    <i class="far fa-user" style="color:#000000;"></i>  
+    <span class="nbuser-labels"> %USER 3% :  </span>
+        <span id="User3Noise">%U3 NOISE%</span>
+   
+  </p>
+  
+    
+   
+    <p class= "nbuser-labels">
+   
+ 
+  </div>
+  
+  <div id ="section">
+    <p> section 영역 </p>
+  </div>
+  </nav>
+  
+<script>
+setInterval(function ( ) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("temperature").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "/temperature", true);
+  xhttp.send();
+}, 10000 ) ;
+setInterval(function ( ) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("light").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "/light", true);
+  xhttp.send();
+}, 10000 ) ;
+setInterval(function ( ) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("GreenLed").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "/greenLed", true);
+  xhttp.send();
+}, 10000 ) ;
+setInterval(function ( ) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("RedLed").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "/redLed", true);
+  xhttp.send();
+}, 10000 ) ;
+setInterval(function ( ) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("LedOverride").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "/override", true);
+  xhttp.send();
+}, 10000 ) ;
+</script>
+</body>
+</html>
